@@ -1,65 +1,89 @@
-import Image from "next/image";
+"use client";
+
+import { ArrowRight, Github, Gitlab, Linkedin, Mail, MapPin, Briefcase } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Balancer } from "react-wrap-balancer";
+import { AnimatedSection } from "@/components/animated-section";
+
+const socialLinks = [
+  { icon: Github, href: "https://github.com/example", label: "GitHub" },
+  { icon: Gitlab, href: "https://gitlab.com/example", label: "GitLab" },
+  { icon: Linkedin, href: "https://linkedin.com/in/example", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:suryapillutla007@gmail.com", label: "Email" },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 dark:from-blue-500/5 dark:via-purple-500/5 dark:to-pink-500/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
+      </div>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
+        <div className="max-w-4xl mx-auto text-center">
+          <AnimatedSection delay={0}>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent">
+              Hi, I&apos;m Surya Pillutla
+            </h1>
+
+            <p className="text-2xl md:text-3xl font-semibold mb-4 text-foreground/80">
+              Frontend Developer
+            </p>
+
+            <p className="text-lg md:text-xl text-foreground/70 mb-8">
+              <Balancer>
+                I build fast, beautiful, and performant web experiences.
+              </Balancer>
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-8 text-sm text-foreground/60">
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                <span>Hyderabad</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Briefcase className="h-4 w-4" />
+                <span>2+ years experience</span>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.6} className="flex flex-wrap items-center justify-center gap-4 mb-12">
+            <Button asChild size="lg">
+              <Link href="/projects" prefetch={true}>
+                View My Work
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="/contact" prefetch={true}>Get In Touch</Link>
+            </Button>
+          </AnimatedSection>
+
+          {/* Social Links */}
+          <AnimatedSection delay={0.7} className="flex items-center justify-center gap-6">
+            {socialLinks.map((social, index) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full border border-foreground/10 hover:border-foreground/30 hover:bg-foreground/5 transition-all duration-200 hover:scale-110 active:scale-95"
+                  aria-label={social.label}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              );
+            })}
+          </AnimatedSection>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
     </div>
   );
 }

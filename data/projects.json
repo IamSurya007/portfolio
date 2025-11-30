@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Echowave — Social Media Platform",
+    "description": "A full-stack social media platform built with the MERN stack, featuring user authentication, post creation, likes, comments, real-time notifications, and a clean, responsive UI. Developed to understand end-to-end scalable architecture and deployment workflows.",
+    "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io", "JWT", "Tailwind CSS", "AWS S3"],
+    "image": "/project-echowave.jpg",
+    "liveUrl": "https://echowave-8by4.onrender.com/",
+    "githubUrl": "https://github.com/IamSurya007/EchoWave"
+  },
+  {
+    "id": 2,
+    "title": "StorySphere — SaaS Story Platform",
+    "description": "A Next.js 15 SaaS storytelling platform with authentication, user dashboards, MDX-powered story writing, AI-ready architecture, AWS S3 uploads, Prisma ORM, and SEO-optimized public story pages. Includes edge-optimized APIs, server actions, and a modern editor.",
+    "techStack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3", "NextAuth"],
+    "image": "/project-storysphere.jpg",
+    "liveUrl": "https://story-sphere-five.vercel.app/",
+    "githubUrl": "https://github.com/IamSurya007/story-sphere"
+  },
+  {
+    "id": 3,
+    "title": "EventReply — Event Invitations & Guest Management",
+    "description": "A production-grade event management platform built with Angular & Ionic serving 10K+ users. Includes dynamic invitation flows, QR verification, WhatsApp automation, credits system, CSV uploads, referral tracking and Integrated Sentry.",
+    "techStack": ["Angular", "Ionic Framework", "TypeScript", "GitLab CI/CD", "Sentry", "Spring Boot"],
+    "image": "/project-eventreply.jpg",
+    "liveUrl": "https://eventreply.com/",
+    "githubUrl": "http://gitlab.com/rakesh_gudipudi/invitations-mobile/"
+  },
+  {
+    "id": 4,
+    "title": "Frensy — Home Services App",
+    "description": "A cross-platform Ionic application for booking home services like cleaning, repairs, and appliance maintenance. Features location-based service discovery, provider assignment, secure authentication, order tracking, and a clean customer-first interface.",
+    "techStack": ["Ionic", "Angular", "TypeScript", "GitLab CI/CD", "Web Scraping", "REST APIs"],
+    "image": "/project-frensy.jpg",
+    "liveUrl": "https://m.dev.frensy.com/",
+    "githubUrl": "https://gitlab.com/rakesh_gudipudi/frensy-ionic"
+  },
+  {
+    "id": 5,
+    "title": "VVIT Learnspace — Educational Platform",
+    "description": "A digital learning portal created for VVIT students featuring course materials, announcements, student dashboards, and responsive layouts. Designed with a clean academic UI and optimized for fast browsing and mobile usability.",
+    "techStack": ["React.js", "Express.js", "Node.js", "MongoDB", "ShadCN", "Tailwind CSS"],
+    "image": "/project-learnspace.jpg",
+    "liveUrl": "https://vvit-learnspace.vercel.app/",
+    "githubUrl": "https://github.com/TechXcel/VVIT-LearnSpace"
+  },
+  {
+    "id": 6,
+    "title": "Portfolio Website",
+    "description": "A modern, animated, responsive portfolio built with Next.js 15, Tailwind CSS, Framer Motion, and MDX for blogs. Includes dark/light mode, smooth transitions, SEO optimization, routed pages, and a clean developer-centric design.",
+    "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "MDX"],
+    "image": "/project-portfolio.jpg",
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example"
+  }
+]

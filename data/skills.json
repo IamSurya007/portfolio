@@ -1,0 +1,29 @@
+{
+  "frontend": [
+    { "name": "Angular", "level": "Advanced" },
+    { "name": "React", "level": "Advanced" },
+    { "name": "Next.js", "level": "Advanced" },
+    { "name": "TypeScript", "level": "Advanced" },
+    { "name": "Tailwind CSS", "level": "Advanced" },
+    { "name": "Ionic", "level": "Intermediate" }
+  ],
+  "backend": [
+    { "name": "Node.js", "level": "Intermediate" },
+    { "name": "Express", "level": "Intermediate" },
+    { "name": "Spring Boot", "level": "Basic" },
+    { "name": "Prisma", "level": "Intermediate" }
+  ],
+  "tools": [
+    { "name": "Git", "level": "Advanced" },
+    { "name": "GitLab CI/CD", "level": "Intermediate" },
+    { "name": "AWS S3", "level": "Intermediate" },
+    { "name": "CloudFront", "level": "Intermediate" }
+  ],
+  "other": [
+    { "name": "RxJS", "level": "Intermediate" },
+    { "name": "DSA", "level": "Basic" },
+    { "name": "Jest", "level": "Intermediate" }
+  ]
+}
+
+

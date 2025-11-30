@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "role": "Product Manager",
+    "company": "Tech Corp",
+    "content": "Surya is an exceptional frontend developer. His attention to detail and ability to optimize performance is outstanding. He transformed our application's performance significantly.",
+    "avatar": "/avatar-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "role": "CTO",
+    "company": "StartupXYZ",
+    "content": "Working with Surya was a pleasure. He delivered high-quality code on time and was always proactive in suggesting improvements. Highly recommended!",
+    "avatar": "/avatar-2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Mike Johnson",
+    "role": "Lead Developer",
+    "company": "DevStudio",
+    "content": "Surya's expertise in Angular and Next.js helped us build a robust and scalable application. His code is clean, well-documented, and maintainable.",
+    "avatar": "/avatar-3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Sarah Williams",
+    "role": "Designer",
+    "company": "Creative Agency",
+    "content": "Surya understands the balance between design and functionality. He brings designs to life with smooth animations and excellent user experience.",
+    "avatar": "/avatar-4.jpg"
+  }
+]
+
+
