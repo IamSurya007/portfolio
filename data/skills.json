@@ -2,27 +2,32 @@
   "frontend": [
     { "name": "Angular", "level": "Advanced" },
     { "name": "React", "level": "Advanced" },
+    { "name": "Ionic", "level": "Advanced" },
     { "name": "Next.js", "level": "Advanced" },
     { "name": "TypeScript", "level": "Advanced" },
-    { "name": "Tailwind CSS", "level": "Advanced" },
-    { "name": "Ionic", "level": "Intermediate" }
+    { "name": "Tailwind CSS", "level": "Advanced" }
   ],
   "backend": [
     { "name": "Node.js", "level": "Intermediate" },
     { "name": "Express", "level": "Intermediate" },
     { "name": "Spring Boot", "level": "Basic" },
-    { "name": "Prisma", "level": "Intermediate" }
+    { "name": "Prisma", "level": "Intermediate" },
+    { "name": "Mongo DB", "level": "Intermediate" }
   ],
   "tools": [
     { "name": "Git", "level": "Advanced" },
     { "name": "GitLab CI/CD", "level": "Intermediate" },
     { "name": "AWS S3", "level": "Intermediate" },
+    { "name": "Google Cloud", "level": "Intermediate" },
     { "name": "CloudFront", "level": "Intermediate" }
   ],
   "other": [
     { "name": "RxJS", "level": "Intermediate" },
     { "name": "DSA", "level": "Basic" },
-    { "name": "Jest", "level": "Intermediate" }
+    { "name": "Jest", "level": "Intermediate" },
+    { "name": "Sentry", "level": "Intermediate" },
+    { "name": "Web Scraping", "level": "Intermediate" }
+
   ]
 }
 

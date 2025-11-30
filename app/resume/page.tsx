@@ -58,10 +58,11 @@ export default function ResumePage() {
                     Professional Summary
                   </h2>
                   <p className="text-foreground/70 leading-relaxed">
-                    Frontend Developer with 2+ years of experience building modern web
-                    applications using Angular, Next.js, and TypeScript. Specialized in
-                    performance optimization, improving Lighthouse scores from ~20% to 80%+,
-                    and implementing best practices for scalable applications.
+                    Frontend Developer with 2+ years of experience building
+                    modern web applications using Angular, Next.js, and
+                    TypeScript. Specialized in performance optimization,
+                    improving Lighthouse scores from ~20% to 80%+, and
+                    implementing best practices for scalable applications.
                   </p>
                 </section>
 
@@ -74,18 +75,60 @@ export default function ResumePage() {
                         <h3 className="text-xl font-semibold">
                           Frontend Developer
                         </h3>
-                        <span className="text-sm text-foreground/60">2+ years</span>
+                        <span className="text-sm text-foreground/60">
+                          2+ years
+                        </span>
                       </div>
                       <p className="text-foreground/70 font-medium mb-2">
                         7-Dot Smart Solutions • Hyderabad, India
                       </p>
                       <ul className="list-disc list-inside space-y-1 text-foreground/70 ml-4">
-                        <li>Built and optimized features for Ionic/Angular apps</li>
-                        <li>Improved Lighthouse score from ~20% to 80%+</li>
-                        <li>Implemented code-splitting, caching, lazy loading</li>
-                        <li>Integrated AWS S3, CloudFront, WebSockets</li>
-                        <li>Improved performance 2.5× through optimization</li>
-                        <li>Created admin dashboards, automation, invitations system</li>
+                        <li>
+                          Developed scalable dynamic forms, CSV upload flows,
+                          and complex validation pipelines for event invitations
+                        </li>
+                        <li>
+                          Implemented presigned URL uploads to AWS S3 for
+                          images, videos, and documents with secure access
+                          controls
+                        </li>
+                        <li>
+                          Improved API response times by optimizing RxJS
+                          pipelines, parallelizing requests, and removing
+                          redundant API calls
+                        </li>
+                        <li>
+                          Set up Jest + GitLab CI pipelines enhancing automated
+                          testing reliability and improving build stability
+                        </li>
+                        <li>
+                          Fixed critical UI/UX issues using deep Ionic/Angular
+                          debugging and platform-specific optimizations
+                        </li>
+                        <li>
+                          Enhanced user onboarding flows, reducing drop-offs
+                          through better caching, faster navigation, and clean
+                          error handling
+                        </li>
+                        <li>
+                          Collaborated with backend teams to design efficient
+                          REST API contracts and reduced payload sizes by ~25%
+                        </li>
+                        <li>
+                          Led migration from old code patterns to modern Angular
+                          best practices, improving maintainability and code
+                          quality
+                        </li>
+                        <li>
+                          Monitored real-time application performance using
+                          Sentry and implemented fixes that reduced crash rates
+                          significantly
+                        </li>
+                        <li>
+                          Streamlined Git branching and code review practices,
+                          improving team productivity and reducing merge
+                          conflicts
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -99,6 +142,7 @@ export default function ResumePage() {
                       <h4 className="font-semibold mb-2">Frontend</h4>
                       <p className="text-foreground/70">
                         Angular, React, Next.js, TypeScript, Tailwind CSS, Ionic
+                        Framwork
                       </p>
                     </div>
                     <div>
@@ -116,7 +160,7 @@ export default function ResumePage() {
                     <div>
                       <h4 className="font-semibold mb-2">Other</h4>
                       <p className="text-foreground/70">
-                        RxJS, DSA basics, Jest
+                        Sentry, Web Scraping, RxJS, DSA basics, Jest
                       </p>
                     </div>
                   </div>
@@ -129,5 +173,3 @@ export default function ResumePage() {
     </div>
   );
 }
-
-

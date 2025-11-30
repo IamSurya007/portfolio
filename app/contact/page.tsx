@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Mail, MapPin, CheckCircle } from "lucide-react";
+import { Send, Mail, MapPin, CheckCircle, Phone } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -74,6 +74,13 @@ export default function ContactPage() {
                     >
                       suryapillutla007@gmail.com
                     </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Phone className="h-5 w-5 mt-1 text-foreground/70" />
+                  <div>
+                    <div className="font-semibold mb-1">Phone Number</div>
+                    <div className="text-foreground/70">+91 9182342620</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

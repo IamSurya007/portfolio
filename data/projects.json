@@ -20,8 +20,8 @@
   {
     "id": 3,
     "title": "EventReply — Event Invitations & Guest Management",
-    "description": "A production-grade event management platform built with Angular & Ionic serving 10K+ users. Includes dynamic invitation flows, QR verification, WhatsApp automation, credits system, CSV uploads, referral tracking and Integrated Sentry.",
-    "techStack": ["Angular", "Ionic Framework", "TypeScript", "GitLab CI/CD", "Sentry", "Spring Boot"],
+    "description": "A production-grade event management platform built with Angular & Ionic serving 10K+ users. Includes dynamic invitation flows, QR verification, WhatsApp automation, credits system, CSV uploads, referral tracking and Sentry-based error monitoring",
+    "techStack": ["Angular", "Ionic Framework", "TypeScript", "GitLab CI/CD", "Sentry", "Spring Boot", "Jest"],
     "image": "/project-eventreply.jpg",
     "liveUrl": "https://eventreply.com/",
     "githubUrl": "http://gitlab.com/rakesh_gudipudi/invitations-mobile/"
@@ -51,6 +51,6 @@
     "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "MDX"],
     "image": "/project-portfolio.jpg",
     "liveUrl": "https://example.com",
-    "githubUrl": "https://github.com/example"
+    "githubUrl": "https://github.com/IamSurya007/portfolio"
   }
 ]

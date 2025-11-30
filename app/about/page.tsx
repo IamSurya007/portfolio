@@ -16,25 +16,25 @@ const stats = [
 const education = [
   {
     year: "2020-2024",
-    degree: "Bachelor's Degree",
-    institution: "University Name",
-    description: "Computer Science or related field",
+    degree: "Bachelor of Technology in Computer Science",
+    institution: "Vasireddy Venkatadri International Technological University",
+    description: "Computer Science program with a focus on software development, data structures, and algorithms.",
   },
 ];
 
 const timeline = [
   {
-    year: "2022",
+    year: "2023",
     title: "Started Web Development Journey",
     description: "Began learning HTML, CSS, and JavaScript fundamentals",
   },
   {
-    year: "2023",
+    year: "2024",
     title: "Mastered Frontend Frameworks",
     description: "Deep dive into Angular, React, and Next.js",
   },
   {
-    year: "2024",
+    year: "2025",
     title: "Performance Optimization Expert",
     description: "Specialized in optimizing web applications for speed and efficiency",
   },

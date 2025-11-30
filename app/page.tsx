@@ -7,9 +7,9 @@ import { Balancer } from "react-wrap-balancer";
 import { AnimatedSection } from "@/components/animated-section";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/example", label: "GitHub" },
-  { icon: Gitlab, href: "https://gitlab.com/example", label: "GitLab" },
-  { icon: Linkedin, href: "https://linkedin.com/in/example", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/IamSurya007", label: "GitHub" },
+  { icon: Gitlab, href: "https://gitlab.com/IamSurya007", label: "GitLab" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/surya-pillutla-b751b024a/", label: "LinkedIn" },
   { icon: Mail, href: "mailto:suryapillutla007@gmail.com", label: "Email" },
 ];
 
