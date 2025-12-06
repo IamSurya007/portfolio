@@ -31,7 +31,7 @@ export default function Home() {
             </h1>
 
             <p className="text-2xl md:text-3xl font-semibold mb-4 text-foreground/80">
-              Frontend Developer
+              Full Stack Developer
             </p>
 
             <p className="text-lg md:text-xl text-foreground/70 mb-8">

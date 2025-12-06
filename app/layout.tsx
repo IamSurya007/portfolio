@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+  icons:{
+    icon: '/icon.png',
+    shortcut: "/icon.png",
+    apple: "/icon.png"
+  },
   twitter: {
     card: "summary_large_image",
     title: "Surya Pillutla - Frontend Developer",

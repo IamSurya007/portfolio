@@ -9,15 +9,6 @@
     "githubUrl": "https://github.com/IamSurya007/EchoWave"
   },
   {
-    "id": 2,
-    "title": "StorySphere — SaaS Story Platform",
-    "description": "A Next.js 15 SaaS storytelling platform with authentication, user dashboards, MDX-powered story writing, AI-ready architecture, AWS S3 uploads, Prisma ORM, and SEO-optimized public story pages. Includes edge-optimized APIs, server actions, and a modern editor.",
-    "techStack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3", "NextAuth"],
-    "image": "/project-storysphere.jpg",
-    "liveUrl": "https://story-sphere-five.vercel.app/",
-    "githubUrl": "https://github.com/IamSurya007/story-sphere"
-  },
-  {
     "id": 3,
     "title": "EventReply — Event Invitations & Guest Management",
     "description": "A production-grade event management platform built with Angular & Ionic serving 10K+ users. Includes dynamic invitation flows, QR verification, WhatsApp automation, credits system, CSV uploads, referral tracking and Sentry-based error monitoring",
@@ -36,6 +27,15 @@
     "githubUrl": "https://gitlab.com/rakesh_gudipudi/frensy-ionic"
   },
   {
+    "id": 2,
+    "title": "StorySphere — SaaS Story Platform",
+    "description": "A Next.js 15 SaaS storytelling platform with authentication, user dashboards, MDX-powered story writing, AI-ready architecture, AWS S3 uploads, Prisma ORM, and SEO-optimized public story pages. Includes edge-optimized APIs, server actions, and a modern editor.",
+    "techStack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3", "NextAuth"],
+    "image": "/project-storysphere.jpg",
+    "liveUrl": "https://story-sphere-five.vercel.app/",
+    "githubUrl": "https://github.com/IamSurya007/story-sphere"
+  },
+  {
     "id": 5,
     "title": "VVIT Learnspace — Educational Platform",
     "description": "A digital learning portal created for VVIT students featuring course materials, announcements, student dashboards, and responsive layouts. Designed with a clean academic UI and optimized for fast browsing and mobile usability.",
@@ -46,11 +46,21 @@
   },
   {
     "id": 6,
+    "title": "Event Dating App",
+    "description": "A social dating platform built around swipe interactions, smart matching, real-time chat, and event-based meetups. Users can explore profiles, create or join events, RSVP with ease, and connect through a smooth, mobile-optimized interface.",
+    "techStack": ["Angular", "Ionic Framework", "AWS Serverless", "WebSocket", "Spring Boot", "GitLab CI/CD", "TypeScript"],
+    "image": "/project-learnspace.jpg",
+    "liveUrl": "https://dqatg6n6q3gse.cloudfront.net/",
+    "githubUrl": "https://gitlab.com/rakesh_gudipudi/event-dating-mobile/"
+  },
+  {
+    "id": 7,
     "title": "Portfolio Website",
     "description": "A modern, animated, responsive portfolio built with Next.js 15, Tailwind CSS, Framer Motion, and MDX for blogs. Includes dark/light mode, smooth transitions, SEO optimization, routed pages, and a clean developer-centric design.",
     "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "MDX"],
     "image": "/project-portfolio.jpg",
-    "liveUrl": "https://example.com",
+    "liveUrl": "https://surya-pillulta.vercel.app/",
     "githubUrl": "https://github.com/IamSurya007/portfolio"
   }
 ]
+

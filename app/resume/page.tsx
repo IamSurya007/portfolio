@@ -148,7 +148,7 @@ export default function ResumePage() {
                     <div>
                       <h4 className="font-semibold mb-2">Backend</h4>
                       <p className="text-foreground/70">
-                        Node.js, Express, Spring Boot (basic), Prisma
+                        Node.js, Express, Spring Boot, Prisma
                       </p>
                     </div>
                     <div>

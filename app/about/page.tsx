@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const stats = [
   { label: "Years of Experience", value: "2+", icon: Calendar },
-  { label: "Projects Completed", value: "20+", icon: Code },
+  { label: "Projects Completed", value: "10+", icon: Code },
   { label: "Technologies Mastered", value: "15+", icon: Award },
 ];
 
@@ -18,7 +18,8 @@ const education = [
     year: "2020-2024",
     degree: "Bachelor of Technology in Computer Science",
     institution: "Vasireddy Venkatadri International Technological University",
-    description: "Computer Science program with a focus on software development, data structures, and algorithms.",
+    description:
+      "Computer Science program with a focus on software development, data structures, and algorithms.",
   },
 ];
 
@@ -36,7 +37,8 @@ const timeline = [
   {
     year: "2025",
     title: "Performance Optimization Expert",
-    description: "Specialized in optimizing web applications for speed and efficiency",
+    description:
+      "Specialized in optimizing web applications for speed and efficiency",
   },
 ];
 
@@ -59,16 +61,21 @@ export default function AboutPage() {
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl font-bold mb-4">Surya Pillutla</h3>
                 <p className="text-foreground/70 leading-relaxed">
-                  I&apos;m a frontend developer based in Hyderabad, India, with over 2 years of
-                  experience building modern web applications. I specialize in Angular, Next.js,
-                  and TypeScript, and I&apos;m passionate about creating fast, beautiful, and
-                  performant web experiences.
+                  I'm a full-stack developer based in Hyderabad, India, with
+                  over 2 years of experience building modern web applications. I
+                  work across both frontend and backend technologies,
+                  specializing in Angular, Next.js, Node.js, and TypeScript. I'm
+                  passionate about creating fast, beautiful, and scalable
+                  digital experiences.
                 </p>
+
                 <p className="text-foreground/70 leading-relaxed mt-4">
-                  My journey in web development started with a curiosity about how websites work,
-                  and it has evolved into a career focused on performance optimization, user
-                  experience, and clean code. I enjoy solving complex problems and turning ideas
-                  into reality through code.
+                  My journey in development started with a curiosity about how
+                  websites work, and it has grown into a career focused on clean
+                  architecture, performance optimization, and great user
+                  experience. I enjoy solving complex problems, designing
+                  efficient systems, and turning ideas into reliable,
+                  production-ready applications.
                 </p>
               </div>
             </div>
@@ -81,10 +88,7 @@ export default function AboutPage() {
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
-            <AnimatedInView
-              key={stat.label}
-              delay={index * 0.1}
-            >
+            <AnimatedInView key={stat.label} delay={index * 0.1}>
               <Card hover>
                 <CardContent className="pt-6 text-center">
                   <Icon className="h-8 w-8 mx-auto mb-4 text-foreground/70" />
@@ -102,19 +106,24 @@ export default function AboutPage() {
         <h3 className="text-3xl font-bold mb-8 text-center">Education</h3>
         <div className="space-y-6">
           {education.map((edu, index) => (
-            <AnimatedInView
-              key={index}
-              delay={index * 0.1}
-            >
+            <AnimatedInView key={index} delay={index * 0.1}>
               <Card hover>
                 <CardContent className="pt-6">
                   <div className="flex items-start gap-4">
                     <GraduationCap className="h-6 w-6 mt-1 text-foreground/70" />
                     <div>
-                      <div className="text-sm text-foreground/60 mb-1">{edu.year}</div>
-                      <h4 className="text-xl font-semibold mb-2">{edu.degree}</h4>
-                      <p className="text-foreground/70 font-medium mb-1">{edu.institution}</p>
-                      <p className="text-sm text-foreground/60">{edu.description}</p>
+                      <div className="text-sm text-foreground/60 mb-1">
+                        {edu.year}
+                      </div>
+                      <h4 className="text-xl font-semibold mb-2">
+                        {edu.degree}
+                      </h4>
+                      <p className="text-foreground/70 font-medium mb-1">
+                        {edu.institution}
+                      </p>
+                      <p className="text-sm text-foreground/60">
+                        {edu.description}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -139,7 +148,9 @@ export default function AboutPage() {
                 <div className="absolute left-6 top-2 w-4 h-4 rounded-full bg-foreground border-4 border-background" />
                 <Card hover>
                   <CardContent className="pt-6">
-                    <div className="text-sm text-foreground/60 mb-2">{item.year}</div>
+                    <div className="text-sm text-foreground/60 mb-2">
+                      {item.year}
+                    </div>
                     <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
                     <p className="text-foreground/70">{item.description}</p>
                   </CardContent>
@@ -152,5 +163,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-
