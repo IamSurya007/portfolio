@@ -7,6 +7,18 @@ import { AnimatedInView } from "@/components/animated-in-view";
 
 export const experiences = [
   {
+    role: "Junior Software Engineer",
+    company: "NeuroStellar",
+    duration: "Jan 2026 – Present",
+    location: "Chennai, India",
+    achievements: [
+      "Built a Flutter health-tracking mobile app from scratch integrating Google Health Connect & Apple Health via flutter_health; WorkManager background sync to local Isar DB and Firebase cloud reduced data-loss by ~90% and average sync latency to <2 s",
+      "Designed an AWS serverless report-generation pipeline (S3 trigger → SQS → Lambda) with a Dockerised Python service; cut end-to-end generation time by ~60%; added CloudWatch live-tracking dashboard, alarms, and SNS notifications, reducing mean time-to-detect errors by ~50%",
+      "Revamped the Flutter Desktop admin console and built internal developer tooling, reducing task-completion time by ~35%",
+      "Rearchitected BLE connection logic using Flutter isolates & foreground services; connection time down ~40%, BLE-related crash reports down ~30%"
+    ],
+  },
+  {
     role: "Software Developer",
     company: "7 Dots Smart Solutions",
     duration: "Dec 2024 – Present",
@@ -17,7 +29,7 @@ export const experiences = [
       "Improved admin dashboard performance with a ~45% reduction in median load time using parallel API hydration, optimized RxJS streams, and component-level memoization.",
       "Automated Android & iOS build pipelines using GitLab CI/CD, reducing manual deployment time by ~40%.",
       "Integrated Sentry for error tracking and release health monitoring, cutting unresolved production issues by ~35%.",
-      "Implemented Spring Boot REST APIs to support dynamic autocomplete, search utilities, and performance-optimized lookups.",
+      "Implemented Spring Boot REST APIs to support dynamic autocomplete, search utilities, and performance-optimized lookups."
     ],
   },
   {
@@ -29,7 +41,7 @@ export const experiences = [
       "Contributed to Angular and Ionic applications during early production cycles, resolving 15+ high-priority Jira issues.",
       "Implemented secure login, buy/sell flows, and event creation modules using Angular, RxJS, and Ionic native features.",
       "Improved responsive layout stability and reduced mobile UI inconsistencies by ~30% through targeted component refactoring.",
-      "Collaborated closely with backend teams to ensure seamless API integration and optimized data fetch patterns.",
+      "Collaborated closely with backend teams to ensure seamless API integration and optimized data fetch patterns."
     ],
   },
 ];

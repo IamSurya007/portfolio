@@ -40,6 +40,11 @@ const timeline = [
     description:
       "Specialized in optimizing web applications for speed and efficiency",
   },
+  {
+    year: "2026",
+    title: "Joined NeuroStellar",
+    description: "Started as Junior Software Engineer focusing on Flutter, AWS serverless pipelines, and BLE integration.",
+  },
 ];
 
 export default function AboutPage() {
@@ -61,12 +66,7 @@ export default function AboutPage() {
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl font-bold mb-4">Surya Pillutla</h3>
                 <p className="text-foreground/70 leading-relaxed">
-                  I'm a full-stack developer based in Hyderabad, India, with
-                  over 2 years of experience building modern web applications. I
-                  work across both frontend and backend technologies,
-                  specializing in Angular, Next.js, Node.js, and TypeScript. I'm
-                  passionate about creating fast, beautiful, and scalable
-                  digital experiences.
+                  Full-Stack Mobile & Front-End Developer specialising in Flutter, Angular, and React, with ~2 years of experience shipping production apps to 10K+ users. Skilled in real-time features (WebSockets, BLE), cloud-native pipelines (AWS Lambda/SQS/S3), and CI/CD automation. Consistent track record of measurable gains — BLE latency down 40%, Lighthouse scores up from 20% to 80%, report generation 60% faster.
                 </p>
 
                 <p className="text-foreground/70 leading-relaxed mt-4">
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 className="relative pl-20"
               >
                 <div className="absolute left-6 top-2 w-4 h-4 rounded-full bg-foreground border-4 border-background" />
-                <Card hover>
+                <Card hover className="bg-white/10 dark:bg-white/5 backdrop-blur-lg border border-white/20">
                   <CardContent className="pt-6">
                     <div className="text-sm text-foreground/60 mb-2">
                       {item.year}
