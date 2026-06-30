@@ -27,19 +27,19 @@ export default function Home() {
             </h1>
 
             <p className="text-2xl md:text-3xl font-semibold mb-4 text-foreground/80">
-              Full Stack Developer
+              Full-Stack Mobile & Front-End Developer
             </p>
 
             <p className="text-lg md:text-xl text-foreground/70 mb-8">
               <Balancer>
-                I build fast, beautiful, and performant web experiences.
+                I build fast, beautiful, and performant web and mobile experiences.
               </Balancer>
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mb-8 text-sm text-foreground/60">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Hyderabad</span>
+                <span>Chennai, India</span>
               </div>
               <div className="flex items-center gap-2">
                 <Briefcase className="h-4 w-4" />
@@ -49,20 +49,20 @@ export default function Home() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.6} className="flex flex-wrap items-center justify-center gap-4 mb-12">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="rounded-full">
               <Link href="/projects" prefetch={true}>
                 View My Work
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="rounded-full">
               <Link href="/contact" prefetch={true}>Get In Touch</Link>
             </Button>
           </AnimatedSection>
 
           {/* Social Links */}
           <AnimatedSection delay={0.7} className="flex items-center justify-center gap-6">
-            {socialLinks.map((social, index) => {
+            {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
                 <a
@@ -79,6 +79,24 @@ export default function Home() {
             })}
           </AnimatedSection>
         </div>
+      </section>
+
+      {/* Highlights Strip */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 pb-32">
+        <AnimatedSection delay={0.8}>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { label: "Years of Experience", value: "2+" },
+              { label: "Projects Completed", value: "10+" },
+              { label: "Technologies Mastered", value: "15+" }
+            ].map((stat, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-background/50 backdrop-blur-xl border border-foreground/10 text-center hover:bg-foreground/5 transition-colors">
+                <div className="text-4xl md:text-5xl font-bold mb-2 text-foreground">{stat.value}</div>
+                <div className="text-sm text-foreground/60 font-medium uppercase tracking-wider">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
       </section>
     </div>
   );
