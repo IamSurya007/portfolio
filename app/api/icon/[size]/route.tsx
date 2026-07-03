@@ -3,8 +3,9 @@ import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
-export async function GET(request: NextRequest, { params }: { params: { size: string } }) {
-  const sizeParam = params.size || '192';
+export async function GET(request: NextRequest, { params }: { params: Promise<{ size: string }> }) {
+  const resolvedParams = await params;
+  const sizeParam = resolvedParams.size || '192';
   const size = parseInt(sizeParam, 10);
   
   return new ImageResponse(
