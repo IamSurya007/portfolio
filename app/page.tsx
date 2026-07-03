@@ -32,7 +32,7 @@ export default function Home() {
 
             <p className="text-lg md:text-xl text-foreground/70 mb-8">
               <Balancer>
-                I build fast, beautiful, and performant web and mobile experiences.
+                I build reliable, high-performance web and mobile applications from concept to production.
               </Balancer>
             </p>
 

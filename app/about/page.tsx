@@ -5,6 +5,7 @@ import { GraduationCap, Code, Award, Calendar, Rocket, Zap, Briefcase } from "lu
 import { SectionHeader } from "@/components/ui/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnimatedInView } from "@/components/animated-in-view";
+import { Timeline, TimelineItemData } from "@/components/ui/timeline";
 import skillsData from "@/data/skills.json";
 import Image from "next/image";
 
@@ -107,83 +108,6 @@ export default function AboutPage() {
         })}
       </div>
 
-      {/* Education */}
-      <div className="max-w-4xl mx-auto mb-24">
-        <SectionHeader title="Education" subtitle="" className="mb-8" />
-        <div className="space-y-6">
-          {education.map((edu, index) => (
-            <AnimatedInView key={index} delay={index * 0.1}>
-              <Card hover className="border-foreground/10 bg-background/50 backdrop-blur-sm">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-xl">
-                      <GraduationCap className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-primary mb-1">
-                        {edu.year}
-                      </div>
-                      <h4 className="text-xl font-bold mb-2">
-                        {edu.degree}
-                      </h4>
-                      <p className="text-foreground/70 font-medium mb-2">
-                        {edu.institution}
-                      </p>
-                      <p className="text-sm text-foreground/60 leading-relaxed">
-                        {edu.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedInView>
-          ))}
-        </div>
-      </div>
-
-      {/* Tech Journey Timeline */}
-      <div className="max-w-4xl mx-auto mb-24">
-        <SectionHeader title="Tech Journey" subtitle="My path through software development" className="mb-12" />
-        <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-foreground/10 -translate-x-1/2 hidden sm:block" />
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-foreground/10 -translate-x-1/2 sm:hidden block" />
-          
-          <div className="space-y-12">
-            {timeline.map((item, index) => {
-              const isEven = index % 2 === 0;
-              const TimelineIcon = item.icon;
-              return (
-                <AnimatedInView
-                  key={index}
-                  delay={index * 0.1}
-                  className={`relative flex items-center justify-between sm:justify-center flex-col sm:flex-row w-full ${isEven ? 'sm:flex-row-reverse' : ''}`}
-                >
-                  {/* Timeline Node (Icon) */}
-                  <div className="absolute left-8 sm:left-1/2 w-10 h-10 rounded-full bg-background border-4 border-primary flex items-center justify-center -translate-x-1/2 z-10 shadow-lg">
-                    <TimelineIcon className="h-4 w-4 text-primary" />
-                  </div>
-                  
-                  {/* Content Card */}
-                  <div className={`w-full sm:w-5/12 pl-20 sm:pl-0 ${isEven ? 'sm:pr-12 sm:text-right' : 'sm:pl-12 text-left'}`}>
-                    <Card hover className="bg-background/50 backdrop-blur-xl border-foreground/10">
-                      <CardContent className="pt-6">
-                        <div className="text-sm font-bold text-primary mb-2">
-                          {item.year}
-                        </div>
-                        <h4 className="text-xl font-bold mb-2">{item.title}</h4>
-                        <p className="text-foreground/70 leading-relaxed text-sm">{item.description}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                  <div className="hidden sm:block w-5/12"></div>
-                </AnimatedInView>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
       {/* Skills Section Integrated */}
       <div className="max-w-5xl mx-auto mb-10">
         <SectionHeader
@@ -225,6 +149,52 @@ export default function AboutPage() {
             );
           })}
         </div>
+      </div>
+
+      {/* Education */}
+      <div className="max-w-4xl mx-auto mb-24">
+        <SectionHeader title="Education" subtitle="" className="mb-8" />
+        <div className="space-y-6">
+          {education.map((edu, index) => (
+            <AnimatedInView key={index} delay={index * 0.1}>
+              <Card hover className="border-foreground/10 bg-background/50 backdrop-blur-sm">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-primary/10 rounded-xl">
+                      <GraduationCap className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-primary mb-1">
+                        {edu.year}
+                      </div>
+                      <h4 className="text-xl font-bold mb-2">
+                        {edu.degree}
+                      </h4>
+                      <p className="text-foreground/70 font-medium mb-2">
+                        {edu.institution}
+                      </p>
+                      <p className="text-sm text-foreground/60 leading-relaxed">
+                        {edu.description}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </AnimatedInView>
+          ))}
+        </div>
+      </div>
+
+      {/* Tech Journey Timeline */}
+      <div className="max-w-4xl mx-auto mb-24">
+        <SectionHeader title="Tech Journey" subtitle="My path through software development" className="mb-12" />
+        <Timeline items={timeline.map((item, index) => ({
+          id: index,
+          date: item.year,
+          title: item.title,
+          description: item.description,
+          icon: item.icon,
+        })) as TimelineItemData[]} />
       </div>
 
     </div>

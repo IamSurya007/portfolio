@@ -9,7 +9,7 @@ import { AnimatedInView } from "@/components/animated-in-view";
 
 export default function ProjectsPage() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <SectionHeader
         title="Projects"
         subtitle="A collection of projects I've built and worked on"
