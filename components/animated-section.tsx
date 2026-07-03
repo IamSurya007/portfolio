@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, MotionProps } from "framer-motion";
-import { useEffect, useState } from "react";
 
 interface AnimatedSectionProps extends Omit<MotionProps, "initial" | "animate"> {
   children: React.ReactNode;
@@ -15,22 +14,12 @@ export function AnimatedSection({
   delay = 0,
   ...motionProps 
 }: AnimatedSectionProps) {
-  const [mounted, setMounted] = useState(true);
-
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
-
-  // During SSR and initial hydration, render without animation
-  if (!mounted) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, delay, ease: "easeOut" }}
       className={className}
       {...motionProps}
     >
@@ -38,5 +27,3 @@ export function AnimatedSection({
     </motion.div>
   );
 }
-
-
