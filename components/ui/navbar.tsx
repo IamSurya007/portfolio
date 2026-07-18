@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { getResumeUrls } from "@/lib/resume";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
@@ -21,6 +22,7 @@ export function Navbar() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const { downloadUrl } = getResumeUrls();
 
   React.useEffect(() => {
     setMounted(true);
@@ -61,7 +63,7 @@ export function Navbar() {
             )}
 
             <Button asChild size="sm" className="rounded-lg font-medium">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-4 w-4" />
                 <span className="hidden sm:inline">Resume</span>
               </a>

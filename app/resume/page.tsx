@@ -5,13 +5,20 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AnimatedInView } from "@/components/animated-in-view";
+import { getResumeUrls } from "@/lib/resume";
 
 export default function ResumePage() {
+  const { previewUrl, downloadUrl, isGoogleDrive } = getResumeUrls();
+
   const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/resume.pdf";
-    link.download = "Surya_Pillutla_Resume.pdf";
-    link.click();
+    if (isGoogleDrive) {
+      window.open(downloadUrl, "_blank", "noopener,noreferrer");
+    } else {
+      const link = document.createElement("a");
+      link.href = downloadUrl;
+      link.download = "Surya_Pillutla_Resume.pdf";
+      link.click();
+    }
   };
 
   return (
@@ -25,7 +32,7 @@ export default function ResumePage() {
         <AnimatedInView className="mb-6 flex justify-center">
           <Button onClick={handleDownload} size="lg" className="rounded-full px-8">
             <Download className="mr-2 h-4 w-4" />
-            Download PDF
+            {isGoogleDrive ? "View/Download Resume" : "Download PDF"}
           </Button>
         </AnimatedInView>
 
@@ -34,7 +41,7 @@ export default function ResumePage() {
             <CardContent className="p-0 sm:p-2">
               <div className="w-full aspect-[1/1.4] sm:aspect-auto sm:h-[80vh] bg-foreground/5 rounded-lg overflow-hidden flex items-center justify-center relative group">
                 <iframe 
-                  src="/resume.pdf#toolbar=0" 
+                  src={isGoogleDrive ? previewUrl : `${previewUrl}#toolbar=0`} 
                   className="w-full h-full border-0"
                   title="Resume PDF Viewer"
                 />
@@ -46,7 +53,7 @@ export default function ResumePage() {
                     PDF preview might not be supported on your browser or device.
                   </p>
                   <Button onClick={handleDownload} variant="outline">
-                    Download Instead
+                    {isGoogleDrive ? "Open Resume" : "Download Instead"}
                   </Button>
                 </div>
               </div>
@@ -57,3 +64,4 @@ export default function ResumePage() {
     </div>
   );
 }
+

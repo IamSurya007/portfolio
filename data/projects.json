@@ -1,6 +1,15 @@
 [
   {
     "id": 1,
+    "title": "Spendly — Personal Finance OS",
+    "description": "A Flutter + Next.js personal finance platform unifying expense tracking, budgeting, loan management, and recurring investment tracking. Features SMS auto-parsed expense capture, receipt OCR, and a NestJS + PostgreSQL backend powering real-time sync between mobile and web.",
+    "techStack": ["Flutter", "Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    "image": "/project-spendly.jpg",
+    "liveUrl": "https://spendly-web-psi.vercel.app/",
+    "githubUrl": "https://github.com/IamSurya007/spendly"
+  },
+  {
+    "id": 2,
     "title": "Echowave — Social Media Platform",
     "description": "A full-stack social media platform built with the MERN stack, featuring user authentication, post creation, likes, comments, real-time notifications, and a clean, responsive UI. Developed to understand end-to-end scalable architecture and deployment workflows.",
     "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io", "JWT", "Tailwind CSS", "AWS S3"],
@@ -10,24 +19,6 @@
   },
   {
     "id": 3,
-    "title": "EventReply — Event Invitations & Guest Management",
-    "description": "A production-grade event management platform built with Angular & Ionic serving 10K+ users. Includes dynamic invitation flows, QR verification, WhatsApp automation, credits system, CSV uploads, referral tracking and Sentry-based error monitoring",
-    "techStack": ["Angular", "Ionic Framework", "TypeScript", "GitLab CI/CD", "Sentry", "Spring Boot", "Jest"],
-    "image": "/project-eventreply.jpg",
-    "liveUrl": "https://eventreply.com/",
-    "githubUrl": "http://gitlab.com/rakesh_gudipudi/invitations-mobile/"
-  },
-  {
-    "id": 4,
-    "title": "Frensy — Home Services App",
-    "description": "A cross-platform Ionic application for booking home services like cleaning, repairs, and appliance maintenance. Features location-based service discovery, provider assignment, secure authentication, order tracking, and a clean customer-first interface.",
-    "techStack": ["Ionic", "Angular", "TypeScript", "GitLab CI/CD", "Web Scraping", "REST APIs"],
-    "image": "/project-frensy.jpg",
-    "liveUrl": "https://m.dev.frensy.com/",
-    "githubUrl": "https://gitlab.com/rakesh_gudipudi/frensy-ionic"
-  },
-  {
-    "id": 2,
     "title": "StorySphere — SaaS Story Platform",
     "description": "A Next.js 15 SaaS storytelling platform with authentication, user dashboards, MDX-powered story writing, AI-ready architecture, AWS S3 uploads, Prisma ORM, and SEO-optimized public story pages. Includes edge-optimized APIs, server actions, and a modern editor.",
     "techStack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3", "NextAuth"],
@@ -36,7 +27,25 @@
     "githubUrl": "https://github.com/IamSurya007/story-sphere"
   },
   {
+    "id": 4,
+    "title": "EventReply — Event Invitations & Guest Management",
+    "description": "A production-grade event management platform built with Angular & Ionic serving 10K+ users. Includes dynamic invitation flows, QR verification, WhatsApp automation, credits system, CSV uploads, referral tracking and Sentry-based error monitoring",
+    "techStack": ["Angular", "Ionic Framework", "TypeScript", "GitLab CI/CD", "Sentry", "Spring Boot", "Jest"],
+    "image": "/project-eventreply.jpg",
+    "liveUrl": "https://eventreply.com/",
+    "githubUrl": "http://gitlab.com/rakesh_gudipudi/invitations-mobile/"
+  },
+  {
     "id": 5,
+    "title": "Frensy — Home Services App",
+    "description": "A cross-platform Ionic application for booking home services like cleaning, repairs, and appliance maintenance. Features location-based service discovery, provider assignment, secure authentication, order tracking, and a clean customer-first interface.",
+    "techStack": ["Ionic", "Angular", "TypeScript", "GitLab CI/CD", "Web Scraping", "REST APIs"],
+    "image": "/project-frensy.jpg",
+    "liveUrl": "https://m.dev.frensy.com/",
+    "githubUrl": "https://gitlab.com/rakesh_gudipudi/frensy-ionic"
+  },
+  {
+    "id": 6,
     "title": "VVIT Learnspace — Educational Platform",
     "description": "A digital learning portal created for VVIT students featuring course materials, announcements, student dashboards, and responsive layouts. Designed with a clean academic UI and optimized for fast browsing and mobile usability.",
     "techStack": ["React.js", "Express.js", "Node.js", "MongoDB", "ShadCN", "Tailwind CSS"],
@@ -45,7 +54,7 @@
     "githubUrl": "https://github.com/TechXcel/VVIT-LearnSpace"
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Event Dating App",
     "description": "A social dating platform built around swipe interactions, smart matching, real-time chat, and event-based meetups. Users can explore profiles, create or join events, RSVP with ease, and connect through a smooth, mobile-optimized interface.",
     "techStack": ["Angular", "Ionic Framework", "AWS Serverless", "WebSocket", "Spring Boot", "GitLab CI/CD", "TypeScript"],
@@ -54,7 +63,7 @@
     "githubUrl": "https://gitlab.com/rakesh_gudipudi/event-dating-mobile/"
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "Portfolio Website",
     "description": "A modern, animated, responsive portfolio built with Next.js 15, Tailwind CSS, Framer Motion, and MDX for blogs. Includes dark/light mode, smooth transitions, SEO optimization, routed pages, and a clean developer-centric design.",
     "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "MDX"],
