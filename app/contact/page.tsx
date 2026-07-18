@@ -51,7 +51,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <SectionHeader
         title="Get In Touch"
         subtitle="Have a project in mind? Let's work together!"

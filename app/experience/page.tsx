@@ -1,11 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Briefcase, Calendar, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
-import { Card, CardContent } from "@/components/ui/card";
-import { AnimatedInView } from "@/components/animated-in-view";
-import { motion, AnimatePresence } from "framer-motion";
+import { Timeline, TimelineItemData } from "@/components/ui/timeline";
 
 export const experiences = [
   {
@@ -52,12 +49,6 @@ export const experiences = [
 ];
 
 export default function ExperiencePage() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
-  const toggleExpand = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <SectionHeader
@@ -66,104 +57,15 @@ export default function ExperiencePage() {
       />
 
       <div className="max-w-4xl mx-auto mb-24">
-        <div className="relative">
-          {/* Vertical Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-foreground/10" />
-
-          <div className="space-y-12">
-            {experiences.map((exp, index) => {
-              const isExpanded = expandedIndex === index;
-
-              return (
-                <AnimatedInView
-                  key={index}
-                  delay={index * 0.1}
-                  className="relative pl-20"
-                >
-                  {/* Timeline Node */}
-                  <div className="absolute left-8 w-10 h-10 rounded-full bg-background border-4 border-primary flex items-center justify-center -translate-x-1/2 z-10 shadow-lg mt-1">
-                    <Briefcase className="h-4 w-4 text-primary" />
-                  </div>
-
-                  <Card 
-                    hover 
-                    className="cursor-pointer border-foreground/10 bg-background/50 backdrop-blur-xl transition-all duration-300"
-                    onClick={() => toggleExpand(index)}
-                  >
-                    <CardContent className="pt-6">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                        <div className="flex-1">
-                          <h3 className="text-2xl font-bold mb-2">{exp.role}</h3>
-                          
-                          <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/70 mb-4">
-                            <div className="flex items-center gap-1.5 text-foreground font-medium bg-foreground/5 px-2 py-1 rounded-md border border-foreground/10">
-                              <Briefcase className="h-3.5 w-3.5" />
-                              {exp.company}
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <Calendar className="h-4 w-4" />
-                              <span>{exp.duration}</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <MapPin className="h-4 w-4" />
-                              <span>{exp.location}</span>
-                            </div>
-                          </div>
-                          
-                          {/* Highlight Badges */}
-                          <div className="flex flex-wrap gap-2 mb-2">
-                            {exp.badges.map((badge, bIdx) => (
-                              <span key={bIdx} className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
-                                {badge}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div className="mt-4 md:mt-0 flex justify-end">
-                          <button 
-                            className="p-2 rounded-full hover:bg-foreground/10 transition-colors text-foreground/60"
-                            aria-label={isExpanded ? "Collapse details" : "Expand details"}
-                          >
-                            {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* Expandable Achievements */}
-                      <AnimatePresence>
-                        {isExpanded && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pt-4 mt-4 border-t border-foreground/10">
-                              <h4 className="font-semibold mb-3 text-foreground/90">Key Achievements:</h4>
-                              <ul className="space-y-3">
-                                {exp.achievements.map((achievement, idx) => (
-                                  <li
-                                    key={idx}
-                                    className="flex items-start gap-3"
-                                  >
-                                    <span className="text-primary mt-1 text-lg leading-none">•</span>
-                                    <span className="text-foreground/80 leading-relaxed text-sm md:text-base">{achievement}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </CardContent>
-                  </Card>
-                </AnimatedInView>
-              );
-            })}
-          </div>
-        </div>
+        <Timeline items={experiences.map((exp, index) => ({
+          id: index,
+          date: exp.duration,
+          title: exp.role,
+          subtitle: exp.company,
+          location: exp.location,
+          highlights: exp.badges,
+          details: exp.achievements,
+        })) as TimelineItemData[]} />
       </div>
     </div>
   );
