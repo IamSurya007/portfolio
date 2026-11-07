@@ -10,11 +10,14 @@
   ],
   "backend": [
     {"name": "Node.js", "logo": "https://cdn.simpleicons.org/nodedotjs"},
+    {"name": "NestJS", "logo": "https://cdn.simpleicons.org/nestjs"},
+    {"name": "GraphQL", "logo": "https://cdn.simpleicons.org/graphql"},
     {"name": "Express", "logo": "https://cdn.simpleicons.org/express", "invertInDark": true},
     {"name": "Spring Boot", "logo": "https://cdn.simpleicons.org/spring"},
     {"name": "Prisma", "logo": "https://cdn.simpleicons.org/prisma"},
     {"name": "Mongo DB", "logo": "https://cdn.simpleicons.org/mongodb"},
     {"name": "PostgreSQL", "logo": "https://cdn.simpleicons.org/postgresql"},
+    {"name": "Redis", "logo": "https://cdn.simpleicons.org/redis"},
     {"name": "MySQL", "logo": "https://cdn.simpleicons.org/mysql"},
     {"name": "Python", "logo": "https://cdn.simpleicons.org/python"}
   ],
@@ -24,12 +27,16 @@
     {"name": "Docker", "logo": "https://cdn.simpleicons.org/docker"},
     {"name": "Firebase", "logo": "https://cdn.simpleicons.org/firebase"},
     {"name": "AWS", "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazonaws.svg", "invertInDark": true},
-    {"name": "Google Cloud", "logo": "https://cdn.simpleicons.org/googlecloud"}
+    {"name": "Google Cloud", "logo": "https://cdn.simpleicons.org/googlecloud"},
+    {"name": "Nginx", "logo": "https://cdn.simpleicons.org/nginx"},
+    {"name": "Oracle Cloud", "logo": "https://cdn.simpleicons.org/oracle"}
   ],
   "other": [
     {"name": "RxJS", "logo": "https://cdn.simpleicons.org/reactivex"},
     {"name": "Jest", "logo": "https://cdn.simpleicons.org/jest"},
     {"name": "Sentry", "logo": "https://cdn.simpleicons.org/sentry"},
+    {"name": "WebSockets", "logo": "https://cdn.simpleicons.org/socketdotio", "invertInDark": true},
+    {"name": "RAG / Vector Search", "logo": "https://cdn.simpleicons.org/qdrant"},
     {"name": "Web Scraping", "logo": "https://cdn.simpleicons.org/python"}
   ]
 }

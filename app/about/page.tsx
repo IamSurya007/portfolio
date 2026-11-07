@@ -19,9 +19,9 @@ const education = [
   {
     year: "2020-2024",
     degree: "Bachelor of Technology in Computer Science",
-    institution: "Vasireddy Venkatadri International Technological University",
+    institution: "Vasireddy Venkatadri Institute of Technology (VVIT), Guntur",
     description:
-      "Computer Science program with a focus on software development, data structures, and algorithms.",
+      "Coursework in data structures and algorithms, DBMS, OOP, operating systems and computer networks.",
   },
 ];
 
@@ -48,7 +48,13 @@ const timeline = [
   {
     year: "2026",
     title: "Joined NeuroStellar",
-    description: "Started as Junior Software Engineer focusing on Flutter, AWS serverless pipelines, and BLE integration.",
+    description: "Software Engineer working on Flutter, AWS serverless pipelines, KMS encryption and BLE integration.",
+    icon: Briefcase,
+  },
+  {
+    year: "Oct 2026",
+    title: "Ran a Live Tournament Platform",
+    description: "Built and operated the backend, WebSocket layer and CircleChess integration for a 5-round, 18-player brain-signal chess event, then analysed data loss and AWS cost afterwards.",
     icon: Briefcase,
   },
 ];
@@ -79,7 +85,7 @@ export default function AboutPage() {
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-3xl font-bold mb-4">Surya Pillutla</h3>
                 <p className="text-foreground/70 leading-relaxed text-lg">
-                  Full-Stack Mobile & Front-End Developer specialising in Flutter, Angular, and React, with ~2 years of experience shipping production apps to 10K+ users. Skilled in real-time features (WebSockets, BLE), cloud-native pipelines (AWS Lambda/SQS/S3), and CI/CD automation. Consistent track record of measurable gains — BLE latency down 40%, Lighthouse scores up from 20% to 80%, report generation 60% faster.
+                  Full-stack engineer with ~2 years of experience building and shipping production systems across Flutter, React/Angular, Node.js/NestJS and AWS/GCP, using AI-assisted tools (Claude Code, Cursor) to accelerate delivery. At NeuroStellar I built the serverless backend, WebSocket layer and CircleChess integration behind a live EEG chess-tournament platform, architected a KMS-backed encryption system for sensitive health data, and cut cloud costs by ~$200/month. Earlier, I took EventReply from a ~20% to 80% Lighthouse score and kept 10K+ user apps at 99% crash-free sessions.
                 </p>
                 <p className="text-foreground/70 leading-relaxed mt-4 text-lg">
                   My journey in development started with a curiosity about how websites work, and it has grown into a career focused on clean architecture, performance optimization, and great user experience. I enjoy solving complex problems, designing efficient systems, and turning ideas into reliable, production-ready applications.
