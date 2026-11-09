@@ -1,19 +1,14 @@
 /**
- * Utility to retrieve and parse the resume URLs.
- * If NEXT_PUBLIC_RESUME_GOOGLE_DRIVE_URL is provided, it extracts the Google Drive File ID
- * and constructs appropriate preview and view/download links.
- * Otherwise, it falls back to the local static /resume.pdf file.
+ * The resume lives on Google Drive only. To update it, replace the file on Drive
+ * (same link) - no redeploy needed. NEXT_PUBLIC_RESUME_GOOGLE_DRIVE_URL overrides the default.
  */
-export function getResumeUrls() {
-  const driveUrlOrId = process.env.NEXT_PUBLIC_RESUME_GOOGLE_DRIVE_URL;
+const DEFAULT_RESUME_DRIVE_URL =
+  "https://drive.google.com/file/d/18V0ZK47YxAFUfOUiWxM9Xwo5mbQEcxtp/view?usp=sharing";
 
-  if (!driveUrlOrId) {
-    return {
-      previewUrl: "/resume.pdf",
-      downloadUrl: "/resume.pdf",
-      isGoogleDrive: false,
-    };
-  }
+/** Extracts the Drive file ID and builds the preview and view/download links. */
+export function getResumeUrls() {
+  const driveUrlOrId =
+    process.env.NEXT_PUBLIC_RESUME_GOOGLE_DRIVE_URL || DEFAULT_RESUME_DRIVE_URL;
 
   let fileId = driveUrlOrId.trim();
 
@@ -36,6 +31,5 @@ export function getResumeUrls() {
     previewUrl: `https://drive.google.com/file/d/${fileId}/preview`,
     // Opening the Google Drive view page is the most reliable way for users to view/download/print the resume
     downloadUrl: `https://drive.google.com/file/d/${fileId}/view?usp=sharing`,
-    isGoogleDrive: true,
   };
 }

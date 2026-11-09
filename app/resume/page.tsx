@@ -8,17 +8,10 @@ import { AnimatedInView } from "@/components/animated-in-view";
 import { getResumeUrls } from "@/lib/resume";
 
 export default function ResumePage() {
-  const { previewUrl, downloadUrl, isGoogleDrive } = getResumeUrls();
+  const { previewUrl, downloadUrl } = getResumeUrls();
 
   const handleDownload = () => {
-    if (isGoogleDrive) {
-      window.open(downloadUrl, "_blank", "noopener,noreferrer");
-    } else {
-      const link = document.createElement("a");
-      link.href = downloadUrl;
-      link.download = "Surya_Pillutla_Resume.pdf";
-      link.click();
-    }
+    window.open(downloadUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -32,7 +25,7 @@ export default function ResumePage() {
         <AnimatedInView className="mb-6 flex justify-center">
           <Button onClick={handleDownload} size="lg" className="rounded-full px-8">
             <Download className="mr-2 h-4 w-4" />
-            {isGoogleDrive ? "View/Download Resume" : "Download PDF"}
+            View/Download Resume
           </Button>
         </AnimatedInView>
 
@@ -41,7 +34,7 @@ export default function ResumePage() {
             <CardContent className="p-0 sm:p-2">
               <div className="w-full aspect-[1/1.4] sm:aspect-auto sm:h-[80vh] bg-foreground/5 rounded-lg overflow-hidden flex items-center justify-center relative group">
                 <iframe 
-                  src={isGoogleDrive ? previewUrl : `${previewUrl}#toolbar=0`} 
+                  src={previewUrl} 
                   className="w-full h-full border-0"
                   title="Resume PDF Viewer"
                 />
@@ -53,7 +46,7 @@ export default function ResumePage() {
                     PDF preview might not be supported on your browser or device.
                   </p>
                   <Button onClick={handleDownload} variant="outline">
-                    {isGoogleDrive ? "Open Resume" : "Download Instead"}
+                    Open Resume
                   </Button>
                 </div>
               </div>
