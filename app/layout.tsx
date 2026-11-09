@@ -1,3 +1,4 @@
+import { StarBackground } from "@/components/star-background";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -42,6 +43,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <StarBackground />
           <Navbar />
           <main className="min-h-screen pb-28 pt-20">{children}</main>
         </ThemeProvider>

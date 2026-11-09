@@ -53,3 +53,68 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   opacity: 0.5;
 }
+
+/* ---------- Starfield background ---------- */
+:root {
+  --star: 23 23 23;          /* rgb triplet: dark stars on light theme */
+  --star-opacity: 0.22;
+  --nebula-a: 99 102 241;    /* indigo */
+  --nebula-b: 168 85 247;    /* purple */
+  --nebula-opacity: 0.06;
+}
+
+.dark {
+  --star: 255 255 255;
+  --star-opacity: 0.7;
+  --nebula-opacity: 0.13;
+}
+
+.stars-nebula {
+  opacity: var(--nebula-opacity);
+  background:
+    radial-gradient(ellipse 60% 45% at 15% 10%, rgb(var(--nebula-a)) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 85%, rgb(var(--nebula-b)) 0%, transparent 70%);
+}
+
+.stars-layer {
+  opacity: var(--star-opacity);
+  background-repeat: repeat;
+}
+
+.stars-small {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgb(var(--star)), transparent),
+    radial-gradient(1px 1px at 90px 120px, rgb(var(--star)), transparent),
+    radial-gradient(1px 1px at 160px 60px, rgb(var(--star)), transparent),
+    radial-gradient(1px 1px at 230px 180px, rgb(var(--star)), transparent),
+    radial-gradient(1px 1px at 300px 90px, rgb(var(--star)), transparent);
+  background-size: 340px 220px;
+}
+
+.stars-medium {
+  background-image:
+    radial-gradient(1.5px 1.5px at 60px 80px, rgb(var(--star)), transparent),
+    radial-gradient(1.5px 1.5px at 210px 40px, rgb(var(--star)), transparent),
+    radial-gradient(1.5px 1.5px at 330px 210px, rgb(var(--star)), transparent),
+    radial-gradient(1.5px 1.5px at 130px 260px, rgb(var(--star)), transparent);
+  background-size: 430px 320px;
+  animation: star-twinkle 6s ease-in-out infinite;
+}
+
+.stars-large {
+  background-image:
+    radial-gradient(2px 2px at 120px 140px, rgb(var(--star)), transparent),
+    radial-gradient(2px 2px at 460px 300px, rgb(var(--star)), transparent),
+    radial-gradient(2px 2px at 300px 40px, rgb(var(--star)), transparent);
+  background-size: 620px 420px;
+  animation: star-twinkle 9s ease-in-out -3s infinite;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: var(--star-opacity); }
+  50% { opacity: calc(var(--star-opacity) * 0.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars-medium, .stars-large { animation: none; }
+}
