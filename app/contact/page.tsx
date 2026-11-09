@@ -53,8 +53,9 @@ export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <SectionHeader
-        title="Get In Touch"
-        subtitle="Have a project in mind? Let's work together!"
+        eyebrow="Contact"
+        title="Let's talk"
+        subtitle="Questions, roles or collaborations. I usually reply within a day or two."
       />
 
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -62,32 +63,32 @@ export default function ContactPage() {
         <AnimatedInView className="space-y-6">
           <Card>
             <CardContent className="pt-6">
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <h3 className="font-serif text-2xl font-medium tracking-tight mb-6">Contact information</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <Mail className="h-5 w-5 mt-1 text-foreground/70" />
+                  <Mail className="h-5 w-5 mt-1 text-primary" />
                   <div>
                     <div className="font-semibold mb-1">Email</div>
                     <a
                       href="mailto:suryapillutla007@gmail.com"
-                      className="text-foreground/70 hover:text-foreground transition-colors"
+                      className="text-muted hover:text-foreground transition-colors"
                     >
                       suryapillutla007@gmail.com
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Phone className="h-5 w-5 mt-1 text-foreground/70" />
+                  <Phone className="h-5 w-5 mt-1 text-primary" />
                   <div>
                     <div className="font-semibold mb-1">Phone Number</div>
-                    <div className="text-foreground/70">+91 9182342620</div>
+                    <div className="text-muted">+91 9182342620</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <MapPin className="h-5 w-5 mt-1 text-foreground/70" />
+                  <MapPin className="h-5 w-5 mt-1 text-primary" />
                   <div>
                     <div className="font-semibold mb-1">Location</div>
-                    <div className="text-foreground/70">Hyderabad, India</div>
+                    <div className="text-muted">Chennai, India</div>
                   </div>
                 </div>
               </div>
@@ -114,7 +115,7 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-foreground/10 bg-background focus:outline-none focus:ring-2 focus:ring-foreground/20 transition-all"
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background/60 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all"
                   />
                 </div>
                 <div>
@@ -131,7 +132,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-foreground/10 bg-background focus:outline-none focus:ring-2 focus:ring-foreground/20 transition-all"
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background/60 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all"
                   />
                 </div>
                 <div>
@@ -148,7 +149,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-2 rounded-lg border border-foreground/10 bg-background focus:outline-none focus:ring-2 focus:ring-foreground/20 transition-all resize-none"
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background/60 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all resize-none"
                   />
                 </div>
                 <Button

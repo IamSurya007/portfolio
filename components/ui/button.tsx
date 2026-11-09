@@ -11,16 +11,16 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", size = "md", asChild, children, ...props }, ref) => {
     const buttonClassName = cn(
-      "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+      "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50",
       {
-        "bg-foreground text-background hover:bg-foreground/90":
+        "bg-foreground text-background shadow-sm hover:bg-foreground/85":
           variant === "default",
-        "border border-foreground/20 bg-transparent hover:bg-foreground/10":
+        "border border-border bg-surface/60 backdrop-blur-sm hover:border-foreground/25 hover:bg-surface":
           variant === "outline",
-        "hover:bg-foreground/10": variant === "ghost",
+        "hover:bg-foreground/5": variant === "ghost",
         "h-9 px-4 text-sm": size === "sm",
         "h-11 px-6 text-base": size === "md",
-        "h-13 px-8 text-lg": size === "lg",
+        "h-12 px-7 text-[15px]": size === "lg",
       },
       className
     );

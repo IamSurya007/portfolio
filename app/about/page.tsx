@@ -60,18 +60,19 @@ const timeline = [
 ];
 
 const skillCategories = [
-  { key: "frontend", title: "Frontend", color: "from-blue-500 to-cyan-500" },
-  { key: "backend", title: "Backend", color: "from-purple-500 to-pink-500" },
-  { key: "tools", title: "Tools & DevOps", color: "from-green-500 to-emerald-500" },
-  { key: "other", title: "Other", color: "from-orange-500 to-red-500" },
+  { key: "frontend", title: "Frontend & Mobile" },
+  { key: "backend", title: "Backend & Data" },
+  { key: "tools", title: "Cloud & DevOps" },
+  { key: "other", title: "Practices & Other" },
 ];
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <SectionHeader
-        title="About Me"
-        subtitle="Passionate developer with a focus on creating exceptional user experiences"
+        eyebrow="About"
+        title="A bit about me"
+        subtitle="Full-stack engineer who cares about systems that keep working after launch day."
       />
 
       {/* Bio Section */}
@@ -79,15 +80,16 @@ export default function AboutPage() {
         <Card className="mb-8 border-foreground/10 bg-background/50 backdrop-blur-sm">
           <CardContent className="pt-8">
             <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-4xl font-bold text-white shrink-0 shadow-xl transition-transform hover:scale-105 duration-300">
+              <div className="w-32 h-32 rounded-full bg-primary flex items-center justify-center font-serif text-4xl font-medium text-background shrink-0 shadow-[0_12px_32px_-12px_rgb(0_0_0/0.35)]">
                 SP
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-3xl font-bold mb-4">Surya Pillutla</h3>
-                <p className="text-foreground/70 leading-relaxed text-lg">
+                <h3 className="font-serif text-3xl font-medium tracking-tight mb-1">Surya Pillutla</h3>
+                <p className="eyebrow mb-5">Software Engineer · NeuroStellar</p>
+                <p className="text-muted leading-relaxed text-lg">
                   Full-stack engineer with ~2 years of experience building and shipping production systems across Flutter, React/Angular, Node.js/NestJS and AWS/GCP, using AI-assisted tools (Claude Code, Cursor) to accelerate delivery. At NeuroStellar I built the serverless backend, WebSocket layer and CircleChess integration behind a live EEG chess-tournament platform, architected a KMS-backed encryption system for sensitive health data, and cut cloud costs by ~$200/month. Earlier, I took EventReply from a ~20% to 80% Lighthouse score and kept 10K+ user apps at 99% crash-free sessions.
                 </p>
-                <p className="text-foreground/70 leading-relaxed mt-4 text-lg">
+                <p className="text-muted leading-relaxed mt-4 text-lg">
                   My journey in development started with a curiosity about how websites work, and it has grown into a career focused on clean architecture, performance optimization, and great user experience. I enjoy solving complex problems, designing efficient systems, and turning ideas into reliable, production-ready applications.
                 </p>
               </div>
@@ -104,9 +106,9 @@ export default function AboutPage() {
             <AnimatedInView key={stat.label} delay={index * 0.1}>
               <Card hover className="h-full border-foreground/10 bg-background/50 backdrop-blur-sm">
                 <CardContent className="pt-6 text-center">
-                  <Icon className="h-10 w-10 mx-auto mb-4 text-primary" />
-                  <div className="text-4xl font-bold mb-2">{stat.value}</div>
-                  <div className="text-sm text-foreground/70 font-medium uppercase tracking-wider">{stat.label}</div>
+                  <Icon className="h-6 w-6 mx-auto mb-4 text-primary" />
+                  <div className="font-serif text-4xl font-medium tracking-tight mb-2">{stat.value}</div>
+                  <div className="eyebrow">{stat.label}</div>
                 </CardContent>
               </Card>
             </AnimatedInView>
@@ -117,8 +119,9 @@ export default function AboutPage() {
       {/* Skills Section Integrated */}
       <div className="max-w-5xl mx-auto mb-10">
         <SectionHeader
-          title="Skills & Technologies"
-          subtitle="Technologies I work with to build amazing web and mobile experiences"
+          eyebrow="Toolkit"
+          title="Skills & technologies"
+          subtitle="What I reach for when building mobile, web and cloud systems."
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, categoryIndex) => {
@@ -130,10 +133,8 @@ export default function AboutPage() {
               >
                 <Card hover className="h-full bg-background/50 backdrop-blur-sm border-foreground/10">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-3">
-                      <div
-                        className={`w-1 h-6 rounded-full bg-gradient-to-b ${category.color}`}
-                      />
+                    <CardTitle className="flex items-center gap-3 !text-xl">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                       {category.title}
                     </CardTitle>
                   </CardHeader>
@@ -142,7 +143,7 @@ export default function AboutPage() {
                       {skills.map((skill: any) => (
                         <div
                           key={skill.name}
-                          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-foreground/10 bg-background hover:bg-foreground/5 transition-all duration-200"
+                          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-surface-2/60 hover:border-foreground/20 transition-all duration-200"
                         >
                           <Image src={skill.logo} alt={skill.name} width={16} height={16} className={`inline-block ${skill.invertInDark ? 'dark:invert' : ''}`} unoptimized />
                           <span className="font-medium text-xs sm:text-sm">{skill.name}</span>
@@ -159,27 +160,27 @@ export default function AboutPage() {
 
       {/* Education */}
       <div className="max-w-4xl mx-auto mb-24">
-        <SectionHeader title="Education" subtitle="" className="mb-8" />
+        <SectionHeader eyebrow="Education" title="Where I studied" className="mb-10" />
         <div className="space-y-6">
           {education.map((edu, index) => (
             <AnimatedInView key={index} delay={index * 0.1}>
               <Card hover className="border-foreground/10 bg-background/50 backdrop-blur-sm">
                 <CardContent className="pt-6">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-xl">
+                    <div className="p-3 bg-primary-soft rounded-xl">
                       <GraduationCap className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-primary mb-1">
+                      <div className="eyebrow !text-primary mb-2">
                         {edu.year}
                       </div>
-                      <h4 className="text-xl font-bold mb-2">
+                      <h4 className="font-serif text-xl font-medium tracking-tight mb-2">
                         {edu.degree}
                       </h4>
-                      <p className="text-foreground/70 font-medium mb-2">
+                      <p className="text-foreground/80 font-medium mb-2">
                         {edu.institution}
                       </p>
-                      <p className="text-sm text-foreground/60 leading-relaxed">
+                      <p className="text-sm text-muted leading-relaxed">
                         {edu.description}
                       </p>
                     </div>
@@ -193,7 +194,7 @@ export default function AboutPage() {
 
       {/* Tech Journey Timeline */}
       <div className="max-w-4xl mx-auto mb-24">
-        <SectionHeader title="Tech Journey" subtitle="My path through software development" className="mb-12" />
+        <SectionHeader eyebrow="Journey" title="How I got here" className="mb-12" />
         <Timeline items={timeline.map((item, index) => ({
           id: index,
           date: item.year,

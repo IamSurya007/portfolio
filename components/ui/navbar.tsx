@@ -3,11 +3,10 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Moon, Sun, Home, User, Briefcase, FolderGit2, Mail, Download } from "lucide-react";
+import { Moon, Sun, Home, User, Briefcase, FolderGit2, Mail, ArrowUpRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { getResumeUrls } from "@/lib/resume";
 
 const navItems = [
@@ -20,7 +19,7 @@ const navItems = [
 
 export function Navbar() {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
   const { downloadUrl } = getResumeUrls();
 
@@ -28,53 +27,60 @@ export function Navbar() {
     setMounted(true);
   }, []);
 
+  const isDark = resolvedTheme === "dark";
+
   return (
     <>
-      {/* Minimal Top Header */}
+      {/* Top bar */}
       <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4 pointer-events-none">
         <div className="container mx-auto flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold pointer-events-auto bg-background/50 backdrop-blur-md px-3 py-1.5 rounded-lg border border-foreground/10">
-            Surya Pillutla
+          <Link
+            href="/"
+            className="pointer-events-auto group flex items-center gap-3 rounded-full border border-border bg-background/70 backdrop-blur-md py-1.5 pl-1.5 pr-4"
+          >
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary font-serif text-sm font-semibold text-background">
+              S
+            </span>
+            <span className="font-serif text-[17px] font-medium tracking-tight">Surya Pillutla</span>
           </Link>
 
-          <div className="flex items-center gap-3 pointer-events-auto bg-background/50 backdrop-blur-md p-1.5 rounded-xl border border-foreground/10">
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2 rounded-lg hover:bg-foreground/10 transition-colors relative"
-                aria-label="Toggle theme"
-              >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={theme}
-                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+          <div className="pointer-events-auto flex items-center gap-1 rounded-full border border-border bg-background/70 backdrop-blur-md p-1">
+            <button
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="flex h-8 w-8 items-center justify-center rounded-full text-muted hover:text-foreground hover:bg-foreground/5 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {mounted && (
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={isDark ? "dark" : "light"}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {theme === "dark" ? (
-                      <Sun className="h-4 w-4" />
-                    ) : (
-                      <Moon className="h-4 w-4" />
-                    )}
-                  </motion.div>
+                    {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                  </motion.span>
                 </AnimatePresence>
-              </button>
-            )}
+              )}
+            </button>
 
-            <Button asChild size="sm" className="rounded-lg font-medium">
-              <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
-                <Download className="mr-2 h-4 w-4" />
-                <span className="hidden sm:inline">Resume</span>
-              </a>
-            </Button>
+            <a
+              href={downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-8 items-center gap-1.5 rounded-full bg-foreground px-4 text-sm font-medium text-background transition-colors hover:bg-foreground/85"
+            >
+              Resume
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
       </header>
 
-      {/* Bottom Floating Dock Navbar */}
+      {/* Bottom dock */}
       <div className="fixed bottom-6 left-0 right-0 z-50 px-4 pointer-events-none flex justify-center">
-        <nav className="pointer-events-auto bg-background/70 backdrop-blur-xl border border-foreground/10 p-2 rounded-full shadow-lg flex items-center gap-1 sm:gap-2">
+        <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-border bg-background/75 p-1.5 shadow-[0_8px_30px_-8px_rgb(0_0_0/0.25)] backdrop-blur-xl">
           {navItems.map((item) => {
             const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
             const Icon = item.icon;
@@ -85,23 +91,19 @@ export function Navbar() {
                 href={item.href}
                 prefetch={true}
                 className={cn(
-                  "relative flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 group",
-                  isActive
-                    ? "text-foreground"
-                    : "text-foreground/60 hover:text-foreground hover:bg-foreground/5"
+                  "relative flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200 sm:px-4",
+                  isActive ? "text-foreground" : "text-muted hover:text-foreground"
                 )}
               >
                 {isActive && (
                   <motion.div
                     layoutId="dock-active"
-                    className="absolute inset-0 bg-foreground/10 rounded-full"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    className="absolute inset-0 rounded-full border border-border bg-surface-2"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
-                <Icon className={cn("h-4 w-4 z-10 transition-transform group-hover:scale-110", isActive && "text-foreground")} />
-                <span className={cn("z-10 hidden sm:block", isActive && "font-semibold")}>
-                  {item.label}
-                </span>
+                <Icon className={cn("relative z-10 h-4 w-4", isActive && "text-primary")} />
+                <span className="relative z-10 hidden sm:block">{item.label}</span>
               </Link>
             );
           })}

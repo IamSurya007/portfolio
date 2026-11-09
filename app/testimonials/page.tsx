@@ -49,7 +49,7 @@ export default function TestimonialsPage() {
                     &quot;{testimonialsData[currentIndex].content}&quot;
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-2xl font-bold text-white">
+                    <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center font-serif text-2xl font-medium text-background">
                       {testimonialsData[currentIndex].name.charAt(0)}
                     </div>
                     <div>

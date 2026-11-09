@@ -29,7 +29,7 @@
     {"name": "AWS", "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazonaws.svg", "invertInDark": true},
     {"name": "Google Cloud", "logo": "https://cdn.simpleicons.org/googlecloud"},
     {"name": "Nginx", "logo": "https://cdn.simpleicons.org/nginx"},
-    {"name": "Oracle Cloud", "logo": "https://cdn.simpleicons.org/oracle"}
+    {"name": "Oracle Cloud", "logo": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/oracle.svg", "invertInDark": true}
   ],
   "other": [
     {"name": "RxJS", "logo": "https://cdn.simpleicons.org/reactivex"},

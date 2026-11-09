@@ -1,38 +1,76 @@
 @import "tailwindcss";
 @custom-variant dark (&:is(.dark *));
 
+/* ---------- Design tokens ----------
+   Dark-first "Batman" palette: near-black surfaces with one restrained bat-signal gold accent.
+   All colours flow from these variables. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f4f5;
+  --foreground: #0a0a0b;
+  --surface: #ffffff;
+  --surface-2: #e9e9ec;
+  --muted: #5b5d65;
+  --border: rgb(10 10 11 / 0.1);
+  --primary: #8f6900;
+  --primary-soft: rgb(143 105 0 / 0.1);
+  --glow: 234 179 8;
+  --glow-opacity: 0.1;
+  --grid-line: 10 10 11;
+  --grid-opacity: 0.05;
+}
+
+.dark {
+  --background: #060607;
+  --foreground: #ececee;
+  --surface: #0e0f11;
+  --surface-2: #16171a;
+  --muted: #8a8c93;
+  --border: rgb(255 255 255 / 0.07);
+  --primary: #f2c230;
+  --primary-soft: rgb(242 194 48 / 0.1);
+  --glow: 242 194 48;
+  --glow-opacity: 0.06;
+  --grid-line: 255 255 255;
+  --grid-opacity: 0.03;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-display);
+  --font-mono: var(--font-code);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
-.light {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--foreground);
+}
+
+/* Shared editorial label: small mono caps used above headings and in metadata */
+.eyebrow {
+  font-family: var(--font-code), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 /* Custom scrollbar */
@@ -45,76 +83,55 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--foreground);
-  opacity: 0.3;
+  background: var(--border);
   border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  opacity: 0.5;
+/* ---------- Ambient background ----------
+   One soft glow at the top, a faint grid that fades out, and fine grain. */
+.ambient-glow {
+  position: absolute;
+  left: 50%;
+  top: -22rem;
+  width: 70rem;
+  height: 40rem;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, rgb(var(--glow)), transparent);
+  opacity: var(--glow-opacity);
+  filter: blur(40px);
 }
 
-/* ---------- Starfield background ---------- */
-:root {
-  --star: 23 23 23;          /* rgb triplet: dark stars on light theme */
-  --star-opacity: 0.22;
-  --nebula-a: 99 102 241;    /* indigo */
-  --nebula-b: 168 85 247;    /* purple */
-  --nebula-opacity: 0.06;
-}
-
-.dark {
-  --star: 255 255 255;
-  --star-opacity: 0.7;
-  --nebula-opacity: 0.13;
-}
-
-.stars-nebula {
-  opacity: var(--nebula-opacity);
-  background:
-    radial-gradient(ellipse 60% 45% at 15% 10%, rgb(var(--nebula-a)) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 85% 85%, rgb(var(--nebula-b)) 0%, transparent 70%);
-}
-
-.stars-layer {
-  opacity: var(--star-opacity);
-  background-repeat: repeat;
-}
-
-.stars-small {
+.ambient-grid {
+  opacity: var(--grid-opacity);
   background-image:
-    radial-gradient(1px 1px at 20px 30px, rgb(var(--star)), transparent),
-    radial-gradient(1px 1px at 90px 120px, rgb(var(--star)), transparent),
-    radial-gradient(1px 1px at 160px 60px, rgb(var(--star)), transparent),
-    radial-gradient(1px 1px at 230px 180px, rgb(var(--star)), transparent),
-    radial-gradient(1px 1px at 300px 90px, rgb(var(--star)), transparent);
-  background-size: 340px 220px;
+    linear-gradient(rgb(var(--grid-line)) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--grid-line)) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 80%);
 }
 
-.stars-medium {
-  background-image:
-    radial-gradient(1.5px 1.5px at 60px 80px, rgb(var(--star)), transparent),
-    radial-gradient(1.5px 1.5px at 210px 40px, rgb(var(--star)), transparent),
-    radial-gradient(1.5px 1.5px at 330px 210px, rgb(var(--star)), transparent),
-    radial-gradient(1.5px 1.5px at 130px 260px, rgb(var(--star)), transparent);
-  background-size: 430px 320px;
-  animation: star-twinkle 6s ease-in-out infinite;
+.ambient-grain {
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.stars-large {
-  background-image:
-    radial-gradient(2px 2px at 120px 140px, rgb(var(--star)), transparent),
-    radial-gradient(2px 2px at 460px 300px, rgb(var(--star)), transparent),
-    radial-gradient(2px 2px at 300px 40px, rgb(var(--star)), transparent);
-  background-size: 620px 420px;
-  animation: star-twinkle 9s ease-in-out -3s infinite;
+.dark .ambient-grain {
+  opacity: 0.05;
 }
 
-@keyframes star-twinkle {
-  0%, 100% { opacity: var(--star-opacity); }
-  50% { opacity: calc(var(--star-opacity) * 0.35); }
+/* Status dot pulse used in the hero */
+@keyframes soft-ping {
+  0% { transform: scale(1); opacity: 0.6; }
+  80%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+.soft-ping {
+  animation: soft-ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stars-medium, .stars-large { animation: none; }
+  html { scroll-behavior: auto; }
+  .soft-ping { animation: none; }
 }

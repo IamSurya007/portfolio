@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronUp, MapPin, Calendar, Briefcase } from "lucide-react";
+import { ChevronDown, MapPin } from "lucide-react";
 import { AnimatedInView } from "@/components/animated-in-view";
-import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export interface TimelineItemData {
   id: string | number;
@@ -16,180 +16,124 @@ export interface TimelineItemData {
   icon?: React.ElementType;
   highlights?: string[];
   details?: string[];
+  /** Marks the current role with an accent node. */
+  current?: boolean;
 }
 
 export interface TimelineProps {
   items: TimelineItemData[];
+  /** How many detail bullets to show before "Show all". */
+  previewCount?: number;
 }
 
-export function Timeline({ items }: TimelineProps) {
-  const [expandedId, setExpandedId] = useState<string | number | null>(null);
-
-  const toggleExpand = (id: string | number) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+/**
+ * Single-rail timeline: dates sit in a left column on desktop, content on the right.
+ * Reads top to bottom like a document rather than zig-zagging.
+ */
+export function Timeline({ items, previewCount = 3 }: TimelineProps) {
+  const [expanded, setExpanded] = useState<Record<string | number, boolean>>({});
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto py-8">
-      {/* Vertical Line */}
-      {/* Mobile: pinned left. Desktop: center. */}
-      <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-foreground/10 md:-translate-x-1/2" />
+    <div className="relative">
+      {items.map((item, index) => {
+        const details = item.details ?? [];
+        const isOpen = !!expanded[item.id];
+        const visible = isOpen ? details : details.slice(0, previewCount);
+        const hidden = details.length - previewCount;
+        const isLast = index === items.length - 1;
 
-      <div className="space-y-8 md:space-y-12">
-        {items.map((item, index) => {
-          const isEven = index % 2 === 0;
-          const Icon = item.icon || Briefcase;
-          const isExpanded = expandedId === item.id;
-          const hasDetails = item.details && item.details.length > 0;
-
-          // Alignments
-          const alignClass = isEven ? "text-left md:text-right" : "text-left";
-          const flexAlignClass = isEven ? "items-start md:items-end" : "items-start";
-          const justifyClass = isEven ? "justify-start md:justify-end" : "justify-start";
-
-          return (
-            <AnimatedInView
-              key={item.id}
-              delay={index * 0.1}
-              className={`relative flex items-start md:items-center justify-between flex-col md:flex-row w-full ${
-                !isEven ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Timeline Node */}
-              <div className="absolute left-[28px] md:left-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center -translate-x-1/2 z-10 shadow-lg mt-0 md:mt-0">
-                <Icon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+        return (
+          <AnimatedInView key={item.id} delay={index * 0.06}>
+            <div className="relative grid grid-cols-[20px_1fr] gap-x-5 md:grid-cols-[160px_20px_1fr] md:gap-x-8">
+              {/* Date column (desktop) */}
+              <div className="hidden pt-[3px] text-right md:block">
+                <div className="eyebrow !tracking-[0.08em]">{item.date}</div>
               </div>
 
-              {/* Content Card container */}
-              <div
-                className={`w-full md:w-[45%] pl-[72px] pr-4 md:px-0 ${
-                  isEven ? "md:pr-12" : "md:pl-12"
-                }`}
-              >
-                <Card
-                  hover={!!hasDetails}
-                  className={`bg-background/50 backdrop-blur-xl border-foreground/10 ${
-                    hasDetails ? "cursor-pointer transition-all duration-300" : ""
-                  }`}
-                  onClick={() => {
-                    if (hasDetails) toggleExpand(item.id);
-                  }}
+              {/* Rail */}
+              <div className="relative flex justify-center">
+                <span
+                  className={cn(
+                    "relative z-10 mt-1.5 h-3 w-3 rounded-full border-2",
+                    item.current ? "border-primary bg-primary" : "border-foreground/30 bg-background"
+                  )}
                 >
-                  <CardContent className={`pt-6 flex flex-col ${flexAlignClass}`}>
-                    {/* Header: Date, Title */}
-                    <div className={`text-sm font-bold text-primary mb-2 w-full ${alignClass}`}>
-                      {item.date}
-                    </div>
-                    <h3 className={`text-xl font-bold mb-2 w-full ${alignClass}`}>
-                      {item.title}
-                    </h3>
-
-                    {/* Metadata (Experience) */}
-                    {(item.subtitle || item.location) && (
-                      <div
-                        className={`flex flex-wrap items-center gap-3 md:gap-4 text-sm text-foreground/70 mb-4 w-full ${justifyClass}`}
-                      >
-                        {item.subtitle && (
-                          <div className="flex items-center gap-1.5 text-foreground font-medium bg-foreground/5 px-2 py-1 rounded-md border border-foreground/10">
-                            <Briefcase className="h-3.5 w-3.5" />
-                            {item.subtitle}
-                          </div>
-                        )}
-                        {item.location && (
-                          <div className="flex items-center gap-1.5">
-                            <MapPin className="h-4 w-4" />
-                            <span>{item.location}</span>
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Description (About) */}
-                    {item.description && (
-                      <p className={`text-foreground/70 leading-relaxed text-sm w-full ${alignClass}`}>
-                        {item.description}
-                      </p>
-                    )}
-
-                    {/* Highlights */}
-                    {item.highlights && item.highlights.length > 0 && (
-                      <div className={`flex flex-wrap gap-2 mt-3 mb-2 w-full ${justifyClass}`}>
-                        {item.highlights.map((badge, bIdx) => (
-                          <span
-                            key={bIdx}
-                            className="text-[11px] md:text-xs font-semibold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
-                          >
-                            {badge}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Expand Button */}
-                    {hasDetails && (
-                      <div className={`mt-2 flex w-full ${justifyClass}`}>
-                        <button
-                          className="p-1.5 md:p-2 rounded-full hover:bg-foreground/10 transition-colors text-foreground/60 flex items-center gap-2 text-sm font-medium"
-                          aria-label={isExpanded ? "Collapse details" : "Expand details"}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            toggleExpand(item.id);
-                          }}
-                        >
-                          <span className="hidden sm:inline">
-                            {isExpanded ? "Show less" : "Show more"}
-                          </span>
-                          {isExpanded ? (
-                            <ChevronUp className="h-4 w-4 md:h-5 md:w-5" />
-                          ) : (
-                            <ChevronDown className="h-4 w-4 md:h-5 md:w-5" />
-                          )}
-                        </button>
-                      </div>
-                    )}
-
-                    {/* Expandable Details */}
-                    {hasDetails && (
-                      <AnimatePresence>
-                        {isExpanded && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="overflow-hidden w-full text-left mt-4"
-                          >
-                            <div className="pt-4 border-t border-foreground/10">
-                              <h4 className="font-semibold mb-3 text-foreground/90 text-sm md:text-base">
-                                Key Achievements:
-                              </h4>
-                              <ul className="space-y-3">
-                                {item.details!.map((detail, idx) => (
-                                  <li key={idx} className="flex items-start gap-3 text-left">
-                                    <span className="text-primary mt-1 text-lg leading-none">
-                                      •
-                                    </span>
-                                    <span className="text-foreground/80 leading-relaxed text-sm">
-                                      {detail}
-                                    </span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    )}
-                  </CardContent>
-                </Card>
+                  {item.current && <span className="soft-ping absolute inset-0 rounded-full bg-primary" />}
+                </span>
+                {!isLast && <span className="absolute top-5 bottom-0 w-px bg-border" />}
               </div>
 
-              {/* Empty space for alternating layout */}
-              <div className="hidden md:block md:w-[45%]"></div>
-            </AnimatedInView>
-          );
-        })}
-      </div>
+              {/* Content */}
+              <div className={cn("pb-14", isLast && "pb-0")}>
+                <div className="eyebrow mb-2 md:hidden">{item.date}</div>
+                <h3 className="font-serif text-2xl font-medium tracking-tight">{item.title}</h3>
+
+                {(item.subtitle || item.location) && (
+                  <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[15px]">
+                    {item.subtitle && <span className="font-medium text-primary">{item.subtitle}</span>}
+                    {item.location && (
+                      <span className="flex items-center gap-1 text-muted">
+                        <MapPin className="h-3.5 w-3.5" />
+                        {item.location}
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                {item.description && (
+                  <p className="mt-3 max-w-2xl leading-relaxed text-muted">{item.description}</p>
+                )}
+
+                {item.highlights && item.highlights.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {item.highlights.map((badge) => (
+                      <span
+                        key={badge}
+                        className="rounded-full border border-border bg-surface/70 px-3 py-1 text-xs font-medium text-foreground/80"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {details.length > 0 && (
+                  <div className="mt-5 rounded-2xl border border-border bg-surface/70 p-5 backdrop-blur-sm md:p-6">
+                    <ul className="space-y-3">
+                      <AnimatePresence initial={false}>
+                        {visible.map((detail, i) => (
+                          <motion.li
+                            key={i}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="flex gap-3 overflow-hidden text-[15px] leading-relaxed text-foreground/80"
+                          >
+                            <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-primary" />
+                            <span>{detail}</span>
+                          </motion.li>
+                        ))}
+                      </AnimatePresence>
+                    </ul>
+
+                    {hidden > 0 && (
+                      <button
+                        onClick={() => setExpanded((e) => ({ ...e, [item.id]: !isOpen }))}
+                        className="mt-4 flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
+                        aria-expanded={isOpen}
+                      >
+                        {isOpen ? "Show less" : `Show ${hidden} more`}
+                        <ChevronDown className={cn("h-4 w-4 transition-transform", isOpen && "rotate-180")} />
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </AnimatedInView>
+        );
+      })}
     </div>
   );
 }
