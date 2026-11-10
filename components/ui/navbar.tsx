@@ -36,12 +36,13 @@ export function Navbar() {
         <div className="container mx-auto flex items-center justify-between">
           <Link
             href="/"
-            className="pointer-events-auto group flex items-center gap-3 rounded-full border border-border bg-background/70 backdrop-blur-md py-1.5 pl-1.5 pr-4"
+            aria-label="Surya Pillutla, home"
+            className="pointer-events-auto group flex items-center gap-3 rounded-full border border-border bg-background/70 backdrop-blur-md p-1.5 sm:pr-4"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary font-serif text-sm font-semibold text-background">
               S
             </span>
-            <span className="font-serif text-[17px] font-medium tracking-tight">Surya Pillutla</span>
+            <span className="hidden font-serif text-[17px] font-medium tracking-tight sm:inline">Surya Pillutla</span>
           </Link>
 
           <div className="pointer-events-auto flex items-center gap-1 rounded-full border border-border bg-background/70 backdrop-blur-md p-1">
